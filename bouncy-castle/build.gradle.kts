@@ -5,10 +5,20 @@ import org.jetbrains.kotlinx.publisher.githubRepo
 plugins {
     id("org.jetbrains.kotlin.jvm") version "1.8.22"
     kotlin("libs.publisher") version "0.0.61-dev-34"
+    id("me.qoomon.git-versioning") version "6.4.2"
+}
+
+group = "com.github.cmdjulian"
+gitVersioning.apply {
+    refs {
+        branch(".+") { version = "\${ref}-SNAPSHOT-\${commit.short}" }
+        tag("v(?<version>.*)") { version = "\${ref.version}" }
+    }
 }
 
 repositories {
     mavenCentral()
+    maven(url = "https://jitpack.io")
 }
 
 dependencies {

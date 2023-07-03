@@ -1,4 +1,4 @@
-package de.cmdjulian.graal.bouncycastle
+package com.github.cmdjulian.graal.bouncycastle
 
 import org.graalvm.nativeimage.hosted.Feature
 import org.graalvm.nativeimage.hosted.Feature.AfterRegistrationAccess
