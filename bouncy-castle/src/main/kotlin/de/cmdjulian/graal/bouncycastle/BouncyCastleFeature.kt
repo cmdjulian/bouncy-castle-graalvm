@@ -2,7 +2,6 @@ package de.cmdjulian.graal.bouncycastle
 
 import org.graalvm.nativeimage.hosted.Feature
 import org.graalvm.nativeimage.hosted.Feature.AfterRegistrationAccess
-import org.graalvm.nativeimage.hosted.RuntimeClassInitialization
 import java.security.Provider
 import java.security.Security
 
@@ -21,12 +20,7 @@ class BouncyCastleFeature : Feature {
             )
         }
 
-        println("found and registered bouncy castle")
-        RuntimeClassInitialization.initializeAtBuildTime("org.bouncycastle")
-        RuntimeClassInitialization.initializeAtRunTime(
-            "org.bouncycastle.jcajce.provider.drbg.DRBG\$Default",
-            "org.bouncycastle.jcajce.provider.drbg.DRBG\$NonceAndIV",
-        )
+        println("INFO: found and registered bouncy castle")
         Security.addProvider(clazz.getConstructor().newInstance() as Provider)
     }
 }
