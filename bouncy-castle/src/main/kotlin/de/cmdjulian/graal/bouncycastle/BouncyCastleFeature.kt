@@ -21,6 +21,7 @@ class BouncyCastleFeature : Feature {
             )
         }
 
+        println("found and registered bouncy castle")
         RuntimeClassInitialization.initializeAtBuildTime("org.bouncycastle")
         RuntimeClassInitialization.initializeAtRunTime(
             "org.bouncycastle.jcajce.provider.drbg.DRBG\$Default",
