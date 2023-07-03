@@ -23,8 +23,8 @@ class BouncyCastleFeature : Feature {
 
         RuntimeClassInitialization.initializeAtBuildTime("org.bouncycastle")
         RuntimeClassInitialization.initializeAtRunTime(
-            Class.forName("org.bouncycastle.jcajce.provider.drbg.DRBG\$Default"),
-            Class.forName("org.bouncycastle.jcajce.provider.drbg.DRBG\$NonceAndIV"),
+            "org.bouncycastle.jcajce.provider.drbg.DRBG\$Default",
+            "org.bouncycastle.jcajce.provider.drbg.DRBG\$NonceAndIV",
         )
         Security.addProvider(clazz.getConstructor().newInstance() as Provider)
     }
