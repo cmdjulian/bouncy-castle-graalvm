@@ -21,12 +21,11 @@ class BouncyCastleFeature : Feature {
             )
         }
 
-        val bc = clazz.getConstructor().newInstance() as Provider
-
-        Security.addProvider(bc)
-
         RuntimeClassInitialization.initializeAtBuildTime("org.bouncycastle")
-        RuntimeClassInitialization.initializeAtRunTime(Class.forName("org.bouncycastle.jcajce.provider.drbg.DRBG\$Default"))
-        RuntimeClassInitialization.initializeAtRunTime(Class.forName("org.bouncycastle.jcajce.provider.drbg.DRBG\$NonceAndIV"))
+        RuntimeClassInitialization.initializeAtRunTime(
+            Class.forName("org.bouncycastle.jcajce.provider.drbg.DRBG\$Default"),
+            Class.forName("org.bouncycastle.jcajce.provider.drbg.DRBG\$NonceAndIV"),
+        )
+        Security.addProvider(clazz.getConstructor().newInstance() as Provider)
     }
 }
