@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.graalvm.nativeimage:svm:23.0.0")
+    compileOnly("org.graalvm.nativeimage:svm:23.0.0")
 }
 
 java {
